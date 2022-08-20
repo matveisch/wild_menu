@@ -1,0 +1,48 @@
+import React, { useState } from "react";
+import useMenu from "./itemLists/menuItems";
+import { Link } from "react-router-dom";
+import { LanguageContext } from "../LanguageContext";
+import './menu.css';
+import drinkIcon from "./icons/drinkIcon.png"
+import foodIcon from "./icons/foodIcon.png"
+import hookahIcon from "./icons/HookahIcon.png"
+
+function Menu (){
+
+    const {language, setLanguage} = React.useContext(LanguageContext);
+
+    const [flexDirectionState, setFlexDirectionState] = useState();
+
+    // if(language===2){
+    //     setFlexDirectionState({flexDitection: "row-reverse"});
+    // }
+
+    const menuItems = useMenu();
+    return(
+    <div className="menuWriper">
+    <div className="menuContainer">
+    <Link to="/drinks" >
+        <div 
+        className={'menuItem ' + (language===2 ? "flexReverse" : "")}
+        
+        >
+            <img src={drinkIcon} alt="drink icon" />
+            <h2 className="menuItemName">{menuItems[0]}</h2>
+        </div>
+    </Link>
+    <Link to="/food">
+        <div className={"menuItem " + (language===2 ? "flexReverse" : "")}>
+            <img src={foodIcon} alt="drink icon" />
+            <h2 className="menuItemName">{menuItems[1]}</h2>
+        </div>
+    </Link>
+    <Link to="/hookah">
+        <div className={"menuItem "  + (language===2 ? "flexReverse" : "")}>
+            <img src={hookahIcon} alt="drink icon" />
+            <h2 className="menuItemName">{menuItems[2]}</h2>
+        </div>
+    </Link>
+    </div>
+    </div>)
+}
+export default Menu;
