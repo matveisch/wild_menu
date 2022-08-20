@@ -10,8 +10,12 @@ function Food(){
 
   const foodList = useFood();
 
-    return(<div className="drinkWraper">
-    <TopSlider itemsList={foodList} />
-    </div>)
+    return(
+      <div>
+        <div className="drinkWraper">
+          <TopSlider itemsList={foodList} />
+        </div>
+      </div>
+    )
 }
 export default Food;
