@@ -1,33 +1,31 @@
 import LangScreen from './language/langScreen'
 import Menu from './menu/menu'
-import Drink from './menu/drink'
-import Food from './menu/food'
-import Hookah from './menu/hookah'
+import MainMenu from './menu/mainMenu'
 import {useState} from 'react'
 import { Routes, Route } from "react-router-dom"
 import { LanguageContext } from './LanguageContext'
 import { Layout } from './Layout'
-import { MenuContext } from './MenuContext';
+import { SlideContext } from './SlideContext';
 
 function App() {
   const [language, setLanguage] = useState(1);
-  const [showMenu, setShowMenu] = useState(false);
+  const [slide, setSlide] = useState(0);
 
   return (
     <div>
     <LanguageContext.Provider value={{language, setLanguage}}>
-      <MenuContext.Provider value={{showMenu, setShowMenu}}>
+      <SlideContext.Provider value={{slide, setSlide}}>
         <Routes>
             <Route path="/" element={ <LangScreen/> } />
             <Route path="menu" element={ <Menu/> } />
             
               <Route path='/' element={<Layout/>} >
-                <Route path="drinks" element={ <Drink/> } />
-                <Route path="food" element={ <Food/> } />
-                <Route path="hookah" element={ <Hookah/> } />
+                <Route path="drinks" element={ <MainMenu/> } />
+                <Route path="food" element={ <MainMenu/> } />
+                <Route path="hookah" element={ <MainMenu/> } />
               </Route>
         </Routes>
-      </MenuContext.Provider>
+      </SlideContext.Provider>
     </LanguageContext.Provider>
     
     </div>

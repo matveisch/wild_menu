@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import useMenu from "./itemLists/menuItems";
+
+import useItems from "./itemLists/itemList";
 import { Link } from "react-router-dom";
 import { LanguageContext } from "../LanguageContext";
 import './menu.css';
@@ -17,14 +18,14 @@ function Menu (){
     //     setFlexDirectionState({flexDitection: "row-reverse"});
     // }
 
-    const menuItems = useMenu();
+    const menuItems = useItems().menu;
+    console.log(useItems())
     return(
     <div className="menuWriper">
     <div className="menuContainer">
     <Link to="/drinks" >
         <div 
         className={'menuItem ' + (language===2 ? "flexReverse" : "")}
-        
         >
             <img src={drinkIcon} alt="drink icon" />
             <h2 className="menuItemName">{menuItems[0]}</h2>
