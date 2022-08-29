@@ -14,6 +14,9 @@ function TopSlider (props){
     const {slide, setSlide} = useContext(SlideContext);
     const swiper = useSwiper();
 
+    const currentSlide = swiper.activeIndex;
+    console.log(currentSlide);
+
     // if (!showMenu) {
       return(
       <Swiper
@@ -23,7 +26,6 @@ function TopSlider (props){
           slidesPerView={3}
           centeredSlides={true}
           className="mySwiper mainSwiper"
-          onSlideChange={(swiper) => console.log(swiper.activeIndex)}
         >
         {props.itemsList.map((item, index)=>{
           return (

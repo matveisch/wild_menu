@@ -23,7 +23,6 @@ function TopSlider (props){
           slidesPerView={3}
           centeredSlides={true}
           className="mySwiper mainSwiper"
-          onSlideChange={(swiper) => console.log(swiper.activeIndex)}
         >
         {props.itemsList.map((item, index)=>{
           return (

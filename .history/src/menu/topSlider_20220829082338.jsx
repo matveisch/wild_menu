@@ -13,7 +13,6 @@ import { SlideContext } from "../SlideContext";
 function TopSlider (props){
     const {slide, setSlide} = useContext(SlideContext);
     const swiper = useSwiper();
-
     // if (!showMenu) {
       return(
       <Swiper
@@ -23,17 +22,15 @@ function TopSlider (props){
           slidesPerView={3}
           centeredSlides={true}
           className="mySwiper mainSwiper"
-          onSlideChange={(swiper) => console.log(swiper.activeIndex)}
+          onSwiper={}
         >
         {props.itemsList.map((item, index)=>{
-          return (
-          <SwiperSlide key={index}>
+          return <SwiperSlide key={index}>
             <p className="itemName">{item.name}</p>
             <div className="itemInfo">
               <DrinkInfo  items={item.items}/>
             </div>
           </SwiperSlide>
-          )
         })}
         </Swiper>
         )
