@@ -32,7 +32,10 @@ export default function Header(props) {
             <div className='full-menu' style={(showMenu ? {display: 'block', height: "100%"} : {display: 'none', height: 0})}>
                 {useItems()[location].map((item, index)=>{
                 return<>
-                    <p key={index} onClick={() => {setShowMenu(!showMenu)}}>{item.name}</p>
+                    <p key={index} onClick={() => {
+                        setShowMenu(!showMenu);
+                        setSlide(index);
+                        }}>{item.name}</p>
                 </>
         })}
             </div>
